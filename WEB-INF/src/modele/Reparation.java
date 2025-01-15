@@ -23,4 +23,36 @@ public class Reparation {
         this.idTechnicien = idTechnicien;
         this.idProbleme = idProbleme;
     }
+
+    public int getIdReparation() {
+        return idReparation;
+    }
+
+    public String getDescriptionSolution() {
+        return descriptionSolution;
+    }
+
+    public Date getDateDepot() {
+        return dateDepot;
+    }
+
+    public Date getDateRetour() {
+        return dateRetour;
+    }
+
+    public float getCoutReparation() {
+        return coutReparation;
+    }
+
+    public String getStatutReparation() {
+        return statutReparation;
+    }
+
+    public int getIdTechnicien() {
+        return idTechnicien;
+    }
+
+    public int getIdProbleme() {
+        return idProbleme;
+    }
 }

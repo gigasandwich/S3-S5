@@ -10,4 +10,16 @@ public class Technicien {
         this.nomTechnicien = nomTechnicien;
         this.numeroEmploye = numeroEmploye;
     }
+
+    public int getIdTechnicien() {
+        return idTechnicien;
+    }
+
+    public String getNomTechnicien() {
+        return nomTechnicien;
+    }
+
+    public String getNumeroEmploye() {
+        return numeroEmploye;
+    }
 }

@@ -10,5 +10,16 @@ public class Client {
         this.nom = nom;
         this.contact = contact;
     }
+    
+    public int getId() {
+        return id;
+    }
 
+    public String getNom() {
+        return nom;
+    }
+
+    public String getContact() {
+        return contact;
+    }
 }

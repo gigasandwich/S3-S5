@@ -21,4 +21,36 @@ public class Ordinateur {
         this.idModele = idModele;
         this.stockage = stockage;
     }
+
+    public int getIdOrdinateur() {
+        return idOrdinateur;
+    }
+
+    public String getNumeroSerie() {
+        return numeroSerie;
+    }
+
+    public int getIdClient() {
+        return idClient;
+    }
+
+    public int getIdRam() {
+        return idRam;
+    }
+
+    public int getIdProcesseur() {
+        return idProcesseur;
+    }
+
+    public int getIdTypeOrdinateur() {
+        return idTypeOrdinateur;
+    }
+
+    public int getIdModele() {
+        return idModele;
+    }
+
+    public float getStockage() {
+        return stockage;
+    }
 }

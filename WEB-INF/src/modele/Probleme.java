@@ -11,4 +11,16 @@ public class Probleme {
         this.descriptionProbleme = descriptionProbleme;
         this.categorieProbleme = categorieProbleme;
     }
+
+    public int getIdProbleme() {
+        return idProbleme;
+    }
+
+    public String getDescriptionProbleme() {
+        return descriptionProbleme;
+    }
+
+    public String getCategorieProbleme() {
+        return categorieProbleme;
+    }
 }

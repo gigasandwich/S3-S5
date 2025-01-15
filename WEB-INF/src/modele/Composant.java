@@ -16,4 +16,28 @@ public class Composant {
         this.stockage = stockage;
         this.typeOrdinateur = typeOrdinateur;
     }
+
+    public String getMarque() {
+        return marque;
+    }
+
+    public String getModele() {
+        return modele;
+    }
+
+    public String getProcesseur() {
+        return processeur;
+    }
+
+    public String getRam() {
+        return ram;
+    }
+
+    public float getStockage() {
+        return stockage;
+    }
+
+    public String getTypeOrdinateur() {
+        return typeOrdinateur;
+    }
 }
