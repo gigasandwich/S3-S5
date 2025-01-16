@@ -1,4 +1,4 @@
-package aff;
+package test;
 
 import dao.ClientDao;
 import modele.Client;

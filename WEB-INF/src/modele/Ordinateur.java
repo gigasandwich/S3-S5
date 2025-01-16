@@ -8,9 +8,9 @@ public class Ordinateur {
     private int idProcesseur;
     private int idTypeOrdinateur;
     private int idModele;
-    private float stockage;
+    // private float stockage;
 
-    public Ordinateur(int idOrdinateur, String numeroSerie, int idClient, int idRam, int idProcesseur, int idTypeOrdinateur, int idModele, float stockage) {
+    public Ordinateur(int idOrdinateur, String numeroSerie, int idClient, int idRam, int idProcesseur, int idTypeOrdinateur, int idModele /*, float stockage*/) {
         this.idOrdinateur = idOrdinateur;
         this.numeroSerie = numeroSerie;
         this.idClient = idClient;
@@ -18,7 +18,7 @@ public class Ordinateur {
         this.idProcesseur = idProcesseur;
         this.idTypeOrdinateur = idTypeOrdinateur;
         this.idModele = idModele;
-        this.stockage = stockage;
+        // this.stockage = stockage;
     }
 
     public int getIdOrdinateur() {
@@ -49,7 +49,7 @@ public class Ordinateur {
         return idModele;
     }
 
-    public float getStockage() {
-        return stockage;
-    }
+    // public float getStockage() {
+    //     return stockage;
+    // }
 }

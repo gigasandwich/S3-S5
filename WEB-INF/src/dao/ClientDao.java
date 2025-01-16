@@ -15,6 +15,7 @@ public class ClientDao extends GenericDaoImpl<Client> {
 
     @Override
     protected void entityToPreparedStatement(Client client, PreparedStatement ps) throws SQLException {
+        // Tsy asina ID satria iny SERIAL no sady efa azo ao @ methode getIdFromEntity
         ps.setString(1, client.getNomClient());
         ps.setString(2, client.getPrenomClient());
         ps.setString(3, client.getContact());
@@ -25,6 +26,7 @@ public class ClientDao extends GenericDaoImpl<Client> {
         return new String[]{"nom_client", "prenom_client", "contact"};
     }
 
+    // Ampiasaina ao @ update 
     @Override
     protected int getIdFromEntity(Client client) {
         return client.getIdClient();
