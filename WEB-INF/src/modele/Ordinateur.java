@@ -1,5 +1,7 @@
 package modele; 
 
+import dao.StockageDao;
+
 public class Ordinateur {
     private int idOrdinateur;
     private String numeroSerie;
@@ -49,7 +51,9 @@ public class Ordinateur {
         return idModele;
     }
 
-    // public float getStockage() {
-    //     return stockage;
-    // }
+    // Tsy natao attribut satria natao colonne
+    public Stockage getStockage() {
+        StockageDao stockageDao = new StockageDao();
+        return stockageDao.getStockageByOrdinateurId(this.idOrdinateur);
+    }
 }

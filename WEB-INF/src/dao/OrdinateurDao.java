@@ -1,6 +1,8 @@
 package dao;
 
 import modele.Ordinateur;
+import modele.Stockage;
+import connection.*;
 import java.sql.*;
 
 public class OrdinateurDao extends GenericDaoImpl<Ordinateur> {
@@ -10,7 +12,22 @@ public class OrdinateurDao extends GenericDaoImpl<Ordinateur> {
 
     @Override
     protected Ordinateur resultSetToEntity(ResultSet rs) throws SQLException {
-        return new Ordinateur(rs.getInt("id_ordinateur"), rs.getString("numero_serie"), rs.getInt("id_client"), rs.getInt("id_ram"), rs.getInt("id_processeur"), rs.getInt("id_type_ordinateur"), rs.getInt("id_modele") /*, rs.getFloat("stockage") */);
+        Ordinateur ordinateur = new Ordinateur(rs.getInt("id_ordinateur"), rs.getString("numero_serie"), rs.getInt("id_client"), rs.getInt("id_ram"), rs.getInt("id_processeur"), rs.getInt("id_type_ordinateur"), rs.getInt("id_modele"));
+        return ordinateur;
+    }
+
+    private Stockage getStockageForOrdinateur(int idOrdinateur) throws SQLException {
+        String query = "SELECT s.* FROM stockage s JOIN ordinateur_stockage os ON s.id_stockage = os.id_stockage WHERE os.id_ordinateur = ?";
+        try (Connection connection = ConnectionPostgres.getConnection();
+             PreparedStatement ps = connection.prepareStatement(query)) {
+            ps.setInt(1, idOrdinateur);
+            try (ResultSet rs = ps.executeQuery()) {
+                if (rs.next()) {
+                    return new Stockage(rs.getInt("id_stockage"), rs.getInt("quantite_stockage"), rs.getString("type_stockage"));
+                }
+            }
+        }
+        return null;
     }
 
     @Override
