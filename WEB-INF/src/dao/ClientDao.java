@@ -10,22 +10,23 @@ public class ClientDao extends GenericDaoImpl<Client> {
 
     @Override
     protected Client resultSetToEntity(ResultSet rs) throws SQLException {
-        return new Client(rs.getInt("id_client"), rs.getString("nom_client"), rs.getString("contact"));
+        return new Client(rs.getInt("id_client"), rs.getString("nom_client"), rs.getString("prenom_client"), rs.getString("contact"));
     }
 
     @Override
     protected void entityToPreparedStatement(Client client, PreparedStatement ps) throws SQLException {
-        ps.setString(1, client.getNom());
-        ps.setString(2, client.getContact());
+        ps.setString(1, client.getNomClient());
+        ps.setString(2, client.getPrenomClient());
+        ps.setString(3, client.getContact());
     }
 
     @Override
     protected String[] getInsertColumnsArray() {
-        return new String[]{"nom_client", "contact"};
+        return new String[]{"nom_client", "prenom_client", "contact"};
     }
 
     @Override
     protected int getIdFromEntity(Client client) {
-        return client.getId();
+        return client.getIdClient();
     }
 }

@@ -10,7 +10,6 @@ public class ConnectionPostgres {
         try {
             Class.forName("org.postgresql.Driver");
             Connection connection = DriverManager.getConnection(URL, USER, PASSWORD);
-            System.out.println("Postgre Connexion: OK");
             return connection;
         } catch (SQLException e) {
             System.out.println("Postgre Connexion: " + e.getMessage());

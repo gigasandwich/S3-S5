@@ -1,22 +1,28 @@
 package modele; 
 
 public class Client {
-    int id;
-    String nom;
-    String contact;
+    private int idClient;
+    private String nomClient;
+    private String prenomClient;
+    private String contact;
 
-    public Client(int id, String nom, String contact) {
-        this.id = id;
-        this.nom = nom;
+    public Client(int idClient, String nomClient, String prenomClient, String contact) {
+        this.idClient = idClient;
+        this.nomClient = nomClient;
+        this.prenomClient = prenomClient;
         this.contact = contact;
     }
-    
-    public int getId() {
-        return id;
+
+    public int getIdClient() {
+        return idClient;
     }
 
-    public String getNom() {
-        return nom;
+    public String getNomClient() {
+        return nomClient;
+    }
+
+    public String getPrenomClient() {
+        return prenomClient;
     }
 
     public String getContact() {

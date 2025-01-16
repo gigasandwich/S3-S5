@@ -1,6 +1,7 @@
 DROP DATABASE IF EXISTS atelier_reparation;
 CREATE USER atelier WITH PASSWORD 'atelier' CREATEDB;
 CREATE DATABASE atelier_reparation OWNER atelier;
+GRANT ALL PRIVILEGES ON DATABASE atelier_reparation TO atelier;
 \c atelier_reparation;
 
 DROP TABLE IF EXISTS ordinateur_probleme;

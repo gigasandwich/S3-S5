@@ -1,15 +1,14 @@
 package modele; 
 
 public class Ordinateur {
-    // Idem comme pour client
-    int idOrdinateur;
-    String numeroSerie;
-    int idClient;
-    int idRam;
-    int idProcesseur;
-    int idTypeOrdinateur;
-    int idModele;
-    float stockage;
+    private int idOrdinateur;
+    private String numeroSerie;
+    private int idClient;
+    private int idRam;
+    private int idProcesseur;
+    private int idTypeOrdinateur;
+    private int idModele;
+    private float stockage;
 
     public Ordinateur(int idOrdinateur, String numeroSerie, int idClient, int idRam, int idProcesseur, int idTypeOrdinateur, int idModele, float stockage) {
         this.idOrdinateur = idOrdinateur;

@@ -11,12 +11,12 @@ public abstract class GenericDaoImpl<T> implements GenericDao<T> {
     protected abstract String[] getInsertColumnsArray(); // eg: ["nom_client", "contact"]
     protected abstract int getIdFromEntity(T entity); // client.getId();
 
-    private String tableName;
-    private String idColumn; // Primary key
+    private final String TABLENAME;
+    private final String IDCOLUMN; // Primary key
 
     public GenericDaoImpl(String tableName, String idColumn) {
-        this.tableName = tableName;
-        this.idColumn = idColumn;
+        this.TABLENAME = tableName;
+        this.IDCOLUMN = idColumn;
     }
     
     /*
@@ -26,7 +26,7 @@ public abstract class GenericDaoImpl<T> implements GenericDao<T> {
     public List<T> selectAll() {
         List<T> entities = new ArrayList<>();
 
-        String sql = "SELECT * FROM " + tableName;
+        String sql = "SELECT * FROM " + TABLENAME;
         try (Connection conn = ConnectionPostgres.getConnection();
              PreparedStatement ps = conn.prepareStatement(sql);
              ResultSet rs = ps.executeQuery()) {
@@ -42,7 +42,7 @@ public abstract class GenericDaoImpl<T> implements GenericDao<T> {
 
     @Override
     public T select(int id) {
-        String sql = "SELECT * FROM " + tableName + " WHERE " + idColumn + " = ?";
+        String sql = "SELECT * FROM " + TABLENAME + " WHERE " + IDCOLUMN + " = ?";
         try (Connection conn = ConnectionPostgres.getConnection();
              PreparedStatement ps = conn.prepareStatement(sql)) {
             ps.setInt(1, id);
@@ -61,7 +61,7 @@ public abstract class GenericDaoImpl<T> implements GenericDao<T> {
      */
     @Override
     public void insert(T entity) {
-        String sql = "INSERT INTO " + tableName + " (" + getInsertColumns() + ") VALUES (" + getInsertPlaceholders() + ")";
+        String sql = "INSERT INTO " + TABLENAME + " (" + getInsertColumns() + ") VALUES (" + getInsertPlaceholders() + ")";
         try (Connection conn = ConnectionPostgres.getConnection();
              PreparedStatement ps = conn.prepareStatement(sql)) {
             entityToPreparedStatement(entity, ps);
@@ -86,7 +86,7 @@ public abstract class GenericDaoImpl<T> implements GenericDao<T> {
     public void update(T oldEntity, T newEntity) {
         String[] columns = getInsertColumnsArray();
         String setClause = String.join(" = ?, ", columns) + " = ?";
-        String sql = "UPDATE " + tableName + " SET " + setClause + " WHERE " + idColumn + " = ?";
+        String sql = "UPDATE " + TABLENAME + " SET " + setClause + " WHERE " + IDCOLUMN + " = ?";
         try (Connection conn = ConnectionPostgres.getConnection();
              PreparedStatement ps = conn.prepareStatement(sql)) {
             entityToPreparedStatement(newEntity, ps);
@@ -102,7 +102,7 @@ public abstract class GenericDaoImpl<T> implements GenericDao<T> {
      */
     @Override
     public void delete(int id) {
-        String sql = "DELETE FROM " + tableName + " WHERE " + idColumn + " = ?";
+        String sql = "DELETE FROM " + TABLENAME + " WHERE " + IDCOLUMN + " = ?";
         try (Connection conn = ConnectionPostgres.getConnection();
              PreparedStatement ps = conn.prepareStatement(sql)) {
             ps.setInt(1, id);

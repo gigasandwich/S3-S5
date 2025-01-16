@@ -1,12 +1,12 @@
 package modele;
 
 public class Composant {
-    String marque;
-    String modele;
-    String processeur;
-    String ram;
-    float stockage;
-    String typeOrdinateur;
+    private String marque;
+    private String modele;
+    private String processeur;
+    private String ram;
+    private float stockage;
+    private String typeOrdinateur;
 
     public Composant(String marque, String modele, String processeur, String ram, float stockage, String typeOrdinateur) {
         this.marque = marque;
