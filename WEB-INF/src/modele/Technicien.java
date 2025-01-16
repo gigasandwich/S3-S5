@@ -11,6 +11,9 @@ public class Technicien {
         this.numeroEmploye = numeroEmploye;
     }
 
+    /*
+     * Getters
+     */
     public int getIdTechnicien() {
         return idTechnicien;
     }

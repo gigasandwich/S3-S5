@@ -1,6 +1,7 @@
 package modele; 
 
 import dao.StockageDao;
+import dao.ClientDao;
 
 public class Ordinateur {
     private int idOrdinateur;
@@ -23,6 +24,20 @@ public class Ordinateur {
         // this.stockage = stockage;
     }
 
+    // Tsy natao attribut satria natao colonne
+    public Stockage getStockage() {
+        StockageDao stockageDao = new StockageDao();
+        return stockageDao.getStockageByOrdinateurId(this.idOrdinateur);
+    }
+
+    public Client getClient() {
+        ClientDao clientDao = new ClientDao();
+        return clientDao.select(this.idClient);
+    }
+
+    /*
+     * Getters 
+     */
     public int getIdOrdinateur() {
         return idOrdinateur;
     }
@@ -49,11 +64,5 @@ public class Ordinateur {
 
     public int getIdModele() {
         return idModele;
-    }
-
-    // Tsy natao attribut satria natao colonne
-    public Stockage getStockage() {
-        StockageDao stockageDao = new StockageDao();
-        return stockageDao.getStockageByOrdinateurId(this.idOrdinateur);
     }
 }

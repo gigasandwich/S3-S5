@@ -13,6 +13,9 @@ public class Client {
         this.contact = contact;
     }
 
+    /*
+     * Getters
+     */
     public int getIdClient() {
         return idClient;
     }

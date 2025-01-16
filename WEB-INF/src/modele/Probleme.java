@@ -11,6 +11,9 @@ public class Probleme {
         this.categorieProbleme = categorieProbleme;
     }
 
+    /*
+     * Getters
+     */
     public int getIdProbleme() {
         return idProbleme;
     }

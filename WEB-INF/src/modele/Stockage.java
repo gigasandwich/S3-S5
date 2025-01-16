@@ -11,6 +11,10 @@ public class Stockage {
         this.typeStockage = typeStockage;
     }
 
+    /*
+     * Getters
+     */
+
     public int getIdStockage() {
         return idStockage;
     }

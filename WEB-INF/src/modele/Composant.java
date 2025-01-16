@@ -17,6 +17,9 @@ public class Composant {
         this.typeOrdinateur = typeOrdinateur;
     }
 
+    /*
+     * Getters
+     */
     public String getMarque() {
         return marque;
     }
